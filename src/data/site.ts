@@ -11,7 +11,7 @@ export const site = {
   },
   contact: {
     form: 'https://forms.gle/FORM_PENDAFTARAN_PLACEHOLDER',
-    whatsapp: 'https://wa.me/628xxxxxxxxxx',
+    whatsapp: 'https://wa.me/6289513380400',
     email: 'mailto:info@sman2pangkalanbun.sch.id',
   },
 };
