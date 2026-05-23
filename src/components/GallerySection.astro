@@ -1,0 +1,33 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { galleryItems } from '../data/gallery';
+---
+
+<section id="galeri" class="py-20 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      icon="bi-images"
+      title="Galeri Kegiatan"
+      description="Dokumentasi momen-momen kegiatan ekskul coding"
+    />
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {galleryItems.map((item) => (
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="aspect-video overflow-hidden bg-slate-200">
+            <img
+              src={item.image}
+              alt={item.alt}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-slate-900 mb-1">{item.title}</h3>
+            <p class="text-sm text-slate-600">{item.caption}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

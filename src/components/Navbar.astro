@@ -1,0 +1,74 @@
+---
+import { site } from '../data/site';
+
+const navLinks = [
+  { href: '#beranda', label: 'Beranda' },
+  { href: '#profil', label: 'Profil' },
+  { href: '#manfaat', label: 'Manfaat' },
+  { href: '#jadwal', label: 'Jadwal' },
+  { href: '#program', label: 'Program' },
+  { href: '#mentor', label: 'Mentor' },
+  { href: '#galeri', label: 'Galeri' },
+  { href: '#karya', label: 'Karya' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#kontak', label: 'Kontak' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <a href="#beranda" class="flex items-center gap-2 text-xl font-bold text-blue-600">
+        <i class="bi bi-code-slash"></i>
+        <span>{site.title}</span>
+      </a>
+      
+      <div class="hidden md:flex items-center gap-6">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-slate-600 hover:text-blue-600 transition-colors font-medium"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+      
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 text-slate-600 hover:text-blue-600"
+        aria-label="Toggle menu"
+      >
+        <i class="bi bi-list text-2xl"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+    <div class="px-4 py-3 space-y-2">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="block px-3 py-2 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

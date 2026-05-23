@@ -1,0 +1,51 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { projects } from '../data/projects';
+---
+
+<section id="karya" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      icon="bi-stars"
+      title="Karya Siswa"
+      description="Contoh target karya yang akan dibuat siswa"
+    />
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <div class="bg-slate-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-slate-100">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-xl font-bold text-slate-900">{project.title}</h3>
+            <span class={`px-3 py-1 rounded-full text-xs font-medium ${
+              project.status === 'published' ? 'bg-green-100 text-green-700' :
+              project.status === 'prototype' ? 'bg-yellow-100 text-yellow-700' :
+              'bg-blue-100 text-blue-700'
+            }`}>
+              {project.status === 'contoh' ? 'Contoh Target' : project.status}
+            </span>
+          </div>
+          
+          <p class="text-slate-600 mb-4">{project.description}</p>
+          
+          <div class="flex flex-wrap gap-2 mb-4">
+            {project.technologies.map((tech) => (
+              <span class="px-3 py-1 bg-cyan-100 text-cyan-700 rounded-full text-sm font-medium">
+                {tech}
+              </span>
+            ))}
+          </div>
+          
+          {project.demoUrl && (
+            <a
+              href={project.demoUrl}
+              class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium"
+            >
+              <i class="bi bi-box-arrow-up-right"></i>
+              Lihat Demo
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

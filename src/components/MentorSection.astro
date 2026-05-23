@@ -1,0 +1,36 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { mentors } from '../data/mentors';
+---
+
+<section id="mentor" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      icon="bi-person-badge"
+      title="Pengelola dan Mentor"
+      description="Tim yang membimbing dan mengkoordinasikan kegiatan ekskul"
+    />
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+      {mentors.map((mentor) => (
+        <div class="bg-slate-50 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="aspect-square overflow-hidden bg-slate-200">
+            <img
+              src={mentor.image}
+              alt={mentor.name}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-slate-900">{mentor.name}</h3>
+            <p class="text-sm text-blue-600 font-medium">{mentor.role}</p>
+            {mentor.bio && (
+              <p class="text-sm text-slate-600 mt-2">{mentor.bio}</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

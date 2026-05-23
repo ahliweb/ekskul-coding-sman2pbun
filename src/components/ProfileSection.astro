@@ -1,0 +1,78 @@
+---
+import SectionHeader from './SectionHeader.astro';
+
+const profile = {
+  description: 'Ekstrakurikuler Coding SMAN 2 Pangkalan Bun merupakan kegiatan pengembangan minat dan bakat siswa di bidang teknologi digital. Kegiatan ini dirancang untuk memperkenalkan siswa pada dasar-dasar pemrograman, pembuatan website, logika algoritma, UI/UX sederhana, pemanfaatan AI secara bertanggung jawab, serta pengembangan proyek digital yang bermanfaat.',
+  vision: 'Menjadi wadah pembelajaran teknologi yang membentuk siswa SMAN 2 Pangkalan Bun menjadi generasi kreatif, logis, kolaboratif, dan siap menghadapi tantangan era digital.',
+  mission: [
+    'Mengenalkan dasar-dasar coding dan teknologi web kepada siswa.',
+    'Melatih kemampuan berpikir logis, sistematis, dan kreatif.',
+    'Membimbing siswa membuat karya digital sederhana.',
+    'Mendorong budaya kolaborasi, dokumentasi, dan presentasi karya.',
+    'Mengarahkan penggunaan teknologi untuk kegiatan positif dan bermanfaat.',
+  ],
+  values: [
+    { icon: 'bi-lightbulb', label: 'Kreativitas' },
+    { icon: 'bi-gear', label: 'Logika' },
+    { icon: 'bi-people', label: 'Kolaborasi' },
+    { icon: 'bi-trophy', label: 'Karya' },
+  ],
+  outputs: ['Website', 'Aplikasi Sederhana', 'Portofolio Digital', 'Problem Solving Skills'],
+};
+---
+
+<section id="profil" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      icon="bi-info-circle"
+      title="Profil Ekskul"
+      description="Mengenal lebih dekat Ekstrakurikuler Coding SMAN 2 Pangkalan Bun"
+    />
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <p class="text-lg text-slate-700 leading-relaxed mb-8">{profile.description}</p>
+        
+        <h3 class="text-2xl font-bold text-slate-900 mb-4">Visi</h3>
+        <p class="text-slate-700 leading-relaxed mb-8">{profile.vision}</p>
+        
+        <h3 class="text-2xl font-bold text-slate-900 mb-4">Misi</h3>
+        <ul class="space-y-3">
+          {profile.mission.map((item) => (
+            <li class="flex items-start gap-3">
+              <i class="bi bi-check-circle-fill text-blue-600 mt-1"></i>
+              <span class="text-slate-700">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">Nilai Kegiatan</h3>
+          <div class="grid grid-cols-2 gap-4">
+            {profile.values.map((value) => (
+              <div class="flex items-center gap-3 p-4 bg-blue-50 rounded-xl">
+                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                  <i class={`bi ${value.icon}`}></i>
+                </div>
+                <span class="font-semibold text-slate-800">{value.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-4">Output Pembelajaran</h3>
+          <div class="flex flex-wrap gap-3">
+            {profile.outputs.map((output) => (
+              <span class="px-4 py-2 bg-cyan-100 text-cyan-700 rounded-full font-medium">
+                {output}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

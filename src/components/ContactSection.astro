@@ -1,0 +1,46 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { site } from '../data/site';
+---
+
+<section id="kontak" class="py-20 bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <SectionHeader
+      icon="bi-envelope"
+      title="Hubungi Kami"
+      description="Tertarik bergabung? Hubungi kami atau daftar sekarang!"
+    />
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <a
+        href={site.contact.form}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-colors shadow-lg"
+      >
+        <i class="bi bi-pencil-square"></i>
+        Daftar Ekskul
+      </a>
+      <a
+        href={site.contact.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-yellow-400 text-slate-900 font-semibold rounded-xl hover:bg-yellow-300 transition-colors shadow-lg"
+      >
+        <i class="bi bi-whatsapp"></i>
+        Hubungi Pengelola
+      </a>
+      <a
+        href="#jadwal"
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/20 text-white font-semibold rounded-xl hover:bg-white/30 transition-colors shadow-lg"
+      >
+        <i class="bi bi-calendar-event"></i>
+        Lihat Jadwal
+      </a>
+    </div>
+    
+    <p class="text-blue-100 text-sm">
+      Untuk informasi resmi, silakan hubungi pengelola ekskul atau pihak sekolah.
+    </p>
+  </div>
+</section>

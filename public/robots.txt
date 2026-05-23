@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ekskulcoding.sman2pangkalanbun.sch.id/sitemap-index.xml

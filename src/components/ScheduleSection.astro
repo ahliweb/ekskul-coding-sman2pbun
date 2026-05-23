@@ -1,0 +1,61 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import { site } from '../data/site';
+---
+
+<section id="jadwal" class="py-20 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <SectionHeader
+      icon="bi-calendar-event"
+      title="Jadwal Kegiatan"
+      description="Jadwal rutin kegiatan ekskul coding setiap minggu"
+    />
+    
+    <div class="bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-8 md:p-12 text-white shadow-xl">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+            <i class="bi bi-calendar-event text-2xl"></i>
+          </div>
+          <div>
+            <p class="text-blue-100 text-sm">Hari</p>
+            <p class="text-xl font-bold">{site.schedule.day}</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+            <i class="bi bi-clock text-2xl"></i>
+          </div>
+          <div>
+            <p class="text-blue-100 text-sm">Waktu</p>
+            <p class="text-xl font-bold">{site.schedule.time}</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
+            <i class="bi bi-geo-alt text-2xl"></i>
+          </div>
+          <div>
+            <p class="text-blue-100 text-sm">Tempat</p>
+            <p class="text-xl font-bold">{site.schedule.location}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 pt-6 border-t border-white/20">
+        <div class="flex items-start gap-3">
+          <i class="bi bi-info-circle text-xl mt-0.5"></i>
+          <p class="text-blue-100">{site.schedule.note}</p>
+        </div>
+      </div>
+      
+      <div class="mt-6 text-center">
+        <span class="inline-block px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
+          Durasi: {site.schedule.duration}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
